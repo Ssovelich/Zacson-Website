@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import styles from "@/styles/Layout.module.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const Layout = ({ children }) => {
   return (
