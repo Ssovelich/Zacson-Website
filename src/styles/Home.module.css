@@ -1,0 +1,39 @@
+/* /src/styles/Home.module.css */
+.hero {
+  background: url('/images/hero-bg.png') no-repeat center/cover;
+  padding: 150px 0;
+  color: white;
+  text-align: center;
+}
+
+.heroContent h1 {
+  font-size: 2.5rem;
+}
+
+.heroButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #f44;
+  color: white;
+  border-radius: 5px;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+  .cardsWrapper {
+    flex-direction: row;
+  }
+}
