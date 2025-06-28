@@ -50,7 +50,6 @@
   width: 120%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
   transform: translateX(-10%) skewX(0deg);
   opacity: 0;
   z-index: 0;
