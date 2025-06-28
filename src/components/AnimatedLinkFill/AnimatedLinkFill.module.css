@@ -1,0 +1,134 @@
+/* ---------------------- базова кнопка ---------------------- */
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 57px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid white;
+  color: white;
+  background: #ff0000; /* «darken» за замовчуванням */
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 0; /* шар фону */
+}
+
+/* текст завжди вище псевдо‑елемента */
+.label {
+  position: relative;
+  z-index: 2;
+}
+
+/* --------- outline‑варіант (прозора кнопка) --------- */
+.link--outline {
+  background: transparent;
+  color: white; /* залишаємо білий текст */
+  border-color: white;
+}
+
+/* ⬇ псевдо‑елемент для outline (рухається по вертикалі) */
+.link--outline::before {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: #ff0000;
+  transform: translateY(-10%) skewY(0deg);
+  opacity: 0;
+  z-index: 0; /* нижче від .label */
+}
+
+/* ------------------ псевдо‑елемент для darken ------------------ */
+/* Важливо: цей селектор спрацьовує лише якщо немає класу link--outline */
+.link:not(.link--outline)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+  transform: translateX(-10%) skewX(0deg);
+  opacity: 0;
+  z-index: 0;
+}
+
+/* ------------------- анімації darken ------------------- */
+.enter::before {
+  animation: slideIn 0.9s cubic-bezier(0.55, 0.08, 0.23, 0.99) forwards;
+}
+.leave::before {
+  animation: slideOut 0.9s cubic-bezier(0.55, 0.08, 0.23, 0.99) forwards;
+}
+
+/* ------------------- анімації fill (vertical) ------------------- */
+.enter-vertical::before {
+  animation: fillDown 0.9s cubic-bezier(0.55, 0.08, 0.23, 0.99) forwards;
+}
+.leave-vertical::before {
+  animation: emptyUp 0.9s cubic-bezier(0.55, 0.08, 0.23, 0.99) forwards;
+}
+
+/* ---------- ключові кадри darken ---------- */
+@keyframes slideIn {
+  0% {
+    left: -120%;
+    transform: translateX(-10%) skewX(0deg) scale(1.02);
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    transform: translateX(0) skewX(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  0% {
+    left: 0%;
+    transform: translateX(0) skewX(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    left: -120%;
+    transform: translateX(-10%) skewX(0deg) scale(1.02);
+    opacity: 0;
+  }
+}
+
+/* ---------- ключові кадри fill (vertical) ---------- */
+@keyframes fillDown {
+  0% {
+    top: -120%;
+    transform: translateY(-10%) skewY(0deg);
+    opacity: 0;
+  }
+  100% {
+    top: 0%;
+    transform: translateY(0) skewY(0);
+    opacity: 1;
+  }
+}
+@keyframes emptyUp {
+  0% {
+    top: 0%;
+    transform: translateY(0) skewY(0);
+    opacity: 1;
+  }
+  100% {
+    top: -120%;
+    transform: translateY(-10%) skewY(0deg);
+    opacity: 0;
+  }
+}
