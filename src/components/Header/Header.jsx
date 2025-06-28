@@ -38,8 +38,8 @@ const Header = () => {
             Contact
           </Link>
         </nav>
-        <AnimatedLinkFill href="/contact">Contact me</AnimatedLinkFill>
-        {/* <AnimatedLinkFill variant="fill" href="/hire">
+        <AnimatedLinkFill className={styles.contactLink} href="/contact">Contact me</AnimatedLinkFill>
+        {/* <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
           Hire me
         </AnimatedLinkFill> */}
 

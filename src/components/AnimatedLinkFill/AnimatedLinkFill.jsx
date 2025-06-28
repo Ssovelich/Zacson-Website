@@ -12,6 +12,7 @@ export default function AnimatedLinkFill({
   href = "/contact",
   children = "Contact me",
   variant = "darken",
+  className = "",
 }) {
   const linkRef = useRef(null);
 
@@ -50,17 +51,19 @@ export default function AnimatedLinkFill({
     };
   }, [variant]);
 
-  /* формуємо класи */
-  const className = [
+  const combinedClassName = [
     styles.link,
     variant === "fill" && styles["link--outline"],
+    className,
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <Link href={href} className={className} ref={linkRef}>
-      <span className={styles.label}>{children}</span>
+    <Link href={href} legacyBehavior>
+      <a className={combinedClassName} ref={linkRef}>
+        <span className={styles.label}>{children}</span>
+      </a>
     </Link>
   );
 }

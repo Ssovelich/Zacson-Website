@@ -14,7 +14,7 @@
 .navDesktop {
   display: none;
 }
-.contactLink {
+.headerContainer .contactLink {
   display: none;
 }
 .burger {
@@ -69,6 +69,9 @@
   .header {
     padding: 0;
   }
+  .headerContainer .contactLink {
+    display: inline-flex; 
+  }
   .burger {
     display: none;
   }
@@ -87,31 +90,5 @@
   }
   .navLink:hover {
     text-decoration: underline;
-  }
-}
-
-@keyframes slideIn {
-  0% {
-    left: -120%;
-    transform: translateX(-10%) skewX(-15deg);
-    opacity: 0;
-  }
-  50% {
-    left: 0%;
-    transform: translateX(5%) skewX(0deg);
-    opacity: 1;
-  }
-  60% {
-    left: 0%;
-    transform: translateX(0%) skewX(0deg);
-  }
-  80% {
-    left: 0%;
-    transform: translateX(4%) skewX(0deg);
-  }
-  100% {
-    left: 0%;
-    transform: translateX(0%) skewX(0deg);
-    opacity: 1;
   }
 }
