@@ -39,9 +39,9 @@ const Header = () => {
           </Link>
         </nav>
         <AnimatedLinkFill className={styles.contactLink} href="/contact">Contact me</AnimatedLinkFill>
-        {/* <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
+        <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
           Hire me
-        </AnimatedLinkFill> */}
+        </AnimatedLinkFill>
 
         <button
           className={`${styles.burger} ${mobileMenuOpen ? styles.open : ""}`}
