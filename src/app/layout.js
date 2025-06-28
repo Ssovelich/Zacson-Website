@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
-  title: "Zacson Fitnes Club",
+  title: "ZACSON Fitnes Club",
   description: "Zacson Fitnes Club",
   icons: {
     icon: '/favicon.png',
