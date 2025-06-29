@@ -9,7 +9,6 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={`container ${styles.heroContent}`}>
-          
           <h1 className={styles.heroTitle}>
             Hi this is Zacson
             <br /> <span className={styles.titleSpan}>Gym Trainer</span>{" "}

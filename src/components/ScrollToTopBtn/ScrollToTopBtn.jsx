@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./ScrollToTopBtn.module.css";
+import { FaLevelUpAlt } from "react-icons/fa";
 
 const ScrollToTopBtn = () => {
   const [visible, setVisible] = useState(false);
@@ -22,7 +23,7 @@ const ScrollToTopBtn = () => {
 
   return (
     <button className={styles.scrollTopBtn} onClick={scrollToTop}>
-      ↑ Top
+      <FaLevelUpAlt />
     </button>
   );
 }
