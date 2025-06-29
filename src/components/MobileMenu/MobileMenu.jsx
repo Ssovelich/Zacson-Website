@@ -1,38 +1,56 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./MobileMenu.module.css";
 import { useEffect, useState } from "react";
 
-const MobileMenu = ({onClose}) => {
+const MobileMenu = ({ isOpen, onCloseComplete }) => {
   const [isExiting, setIsExiting] = useState(false);
 
-   useEffect(() => {
-    document.body.style.overflow = "hidden";
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
+  useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") handleClose();
     };
     window.addEventListener("keydown", handleEsc);
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleEsc);
-    };
+    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
   const handleClose = () => {
-    if (isExiting) return; // захист від повторного натискання
+    if (isExiting) return;
     setIsExiting(true);
 
-    // Дати час анімації спрацювати
     setTimeout(() => {
-      onClose(); // видаляє меню з DOM
-    }, 500); // тривалість має відповідати animation-duration
+      onCloseComplete();
+      setIsExiting(false);
+    }, 500);
   };
 
+  const handleLinkClick = (e) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute("href");
+
+    handleClose();
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 500);
+  };
+
+  if (!isOpen && !isExiting) return null;
+
   return (
-    <div className={styles.backdrop} onClick={handleClose}>
+    <div
+      className={`${styles.backdrop} ${isExiting ? styles.exit : ""}`}
+      onClick={handleClose}
+    >
       <div
         className={`${styles.mobileMenu} ${isExiting ? styles.exit : ""}`}
         onClick={(e) => e.stopPropagation()}
@@ -47,14 +65,14 @@ const MobileMenu = ({onClose}) => {
             ["Blog", "/blog"],
             ["Contact", "/contact"],
           ].map(([label, href]) => (
-            <Link
+            <a
               key={href}
               href={href}
               className={styles.navLink}
-              onClick={handleClose}
+              onClick={handleLinkClick}
             >
               {label}
-            </Link>
+            </a>
           ))}
         </nav>
       </div>

@@ -18,7 +18,7 @@ const Header = () => {
       setIsScrolled(window.scrollY > threshold);
     };
 
-    updateScrolled(); // одразу при завантаженні
+    updateScrolled();
     window.addEventListener("scroll", updateScrolled);
     window.addEventListener("resize", updateScrolled);
 
@@ -35,27 +35,19 @@ const Header = () => {
           <img src="/logo.png" alt="logo" width={95} height={45} />
         </Link>
         <nav className={styles.navDesktop}>
-          <Link href="/" className={styles.navLink}>
-            Home
-          </Link>
-          <Link href="/about" className={styles.navLink}>
-            About
-          </Link>
-          <Link href="/courses" className={styles.navLink}>
-            Courses
-          </Link>
-          <Link href="/pricing" className={styles.navLink}>
-            Pricing
-          </Link>
-          <Link href="/gallery" className={styles.navLink}>
-            Gallery
-          </Link>
-          <Link href="/blog" className={styles.navLink}>
-            Blog
-          </Link>
-          <Link href="/contact" className={styles.navLink}>
-            Contact
-          </Link>
+          {[
+            ["Home", "/"],
+            ["About", "/about"],
+            ["Courses", "/courses"],
+            ["Pricing", "/pricing"],
+            ["Gallery", "/gallery"],
+            ["Blog", "/blog"],
+            ["Contact", "/contact"],
+          ].map(([label, href]) => (
+            <Link key={href} href={href} className={styles.navLink}>
+              {label}
+            </Link>
+          ))}
         </nav>
         <AnimatedLinkFill className={styles.contactLink} href="/contact">Contact me</AnimatedLinkFill>
         {/* <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
@@ -64,16 +56,17 @@ const Header = () => {
 
         <button
           className={`${styles.burger} ${mobileMenuOpen ? styles.open : ""}`}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => setMobileMenuOpen(prev => !prev)}
         >
           <span />
           <span />
           <span />
         </button>
 
-        {mobileMenuOpen && (
-          <MobileMenu onClose={() => setMobileMenuOpen(false)} />
-        )}
+        <MobileMenu
+          isOpen={mobileMenuOpen}
+          onCloseComplete={() => setMobileMenuOpen(false)}
+        />
       </div>
     </header>
   );
