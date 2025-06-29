@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import styles from "./MobileMenu.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const MobileMenu = ({onClose}) => {
-  useEffect(() => {
+  const [isExiting, setIsExiting] = useState(false);
+
+   useEffect(() => {
     document.body.style.overflow = "hidden";
 
     const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") handleClose();
     };
     window.addEventListener("keydown", handleEsc);
 
@@ -17,33 +19,43 @@ const MobileMenu = ({onClose}) => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleEsc);
     };
-  }, [onClose]);
+  }, []);
+
+  const handleClose = () => {
+    if (isExiting) return; // захист від повторного натискання
+    setIsExiting(true);
+
+    // Дати час анімації спрацювати
+    setTimeout(() => {
+      onClose(); // видаляє меню з DOM
+    }, 500); // тривалість має відповідати animation-duration
+  };
 
   return (
-    <div className={styles.backdrop} onClick={onClose}>
-      <div className={styles.mobileMenu}>
+    <div className={styles.backdrop} onClick={handleClose}>
+      <div
+        className={`${styles.mobileMenu} ${isExiting ? styles.exit : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <nav className={styles.navMobile}>
-          <Link href="/" className={styles.navLink}>
-            Home
-          </Link>
-          <Link href="/about" className={styles.navLink}>
-            About
-          </Link>
-          <Link href="/courses" className={styles.navLink}>
-            Courses
-          </Link>
-          <Link href="/pricing" className={styles.navLink}>
-            Pricing
-          </Link>
-          <Link href="/gallery" className={styles.navLink}>
-            Gallery
-          </Link>
-          <Link href="/blog" className={styles.navLink}>
-            Blog
-          </Link>
-          <Link href="/contact" className={styles.navLink}>
-            Contact
-          </Link>
+          {[
+            ["Home", "/"],
+            ["About", "/about"],
+            ["Courses", "/courses"],
+            ["Pricing", "/pricing"],
+            ["Gallery", "/gallery"],
+            ["Blog", "/blog"],
+            ["Contact", "/contact"],
+          ].map(([label, href]) => (
+            <Link
+              key={href}
+              href={href}
+              className={styles.navLink}
+              onClick={handleClose}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
       </div>
     </div>
