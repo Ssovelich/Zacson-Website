@@ -1,3 +1,6 @@
+import Loader from "@/components/Loader/Loader";
+import LoaderCoin from "@/components/LoaderCoin/LoaderCoin";
+import LoaderWave from "@/components/LoaderWave/LoaderWave";
 import styles from "@/styles/pages/Home.module.css";
 import Link from "next/link";
 
@@ -11,6 +14,10 @@ export default function HomePage() {
           <Link href="/courses" className={styles.heroButton}>My Courses</Link>
         </div>
       </section>
+
+      <Loader/>
+      <LoaderWave/>
+      <LoaderCoin/>
 
       {/* Training Categories */}
       <section className={styles.trainingCategories}>

@@ -1,0 +1,39 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+  position: relative;
+}
+/* Тінь під монетою */
+.loader::after {
+  content: "";
+  position: absolute;
+  bottom: 15%;
+  width: 100px;
+  height: 12px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), transparent);
+  border-radius: 50%;
+  filter: blur(2px);
+  transform: scaleX(1.2);
+  z-index: 0;
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  animation: flip 2.5s linear infinite;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 1;
+}
+
+/* Обертання по вертикальній осі (як монета) */
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}

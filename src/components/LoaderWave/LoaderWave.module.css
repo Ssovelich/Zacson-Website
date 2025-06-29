@@ -1,0 +1,39 @@
+.loader {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+}
+.letterWrapper {
+  position: relative;
+  display: inline-block;
+}
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 0;
+}
+.letter {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ff4d2e;
+  animation: bounce 0.6s infinite alternate;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
