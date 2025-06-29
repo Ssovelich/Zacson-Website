@@ -1,8 +1,7 @@
-import Loader from "@/components/Loader/Loader";
-import LoaderCoin from "@/components/LoaderCoin/LoaderCoin";
-import LoaderWave from "@/components/LoaderWave/LoaderWave";
+import AnimatedLinkFill from "@/components/AnimatedLinkFill/AnimatedLinkFill";
 import styles from "@/styles/pages/Home.module.css";
 import Link from "next/link";
+// import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -10,49 +9,88 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Hi, This is Zacson Gym Trainer</h1>
-          <Link href="/courses" className={styles.heroButton}>My Courses</Link>
+          <h1 className={styles.heroTitle}>
+            Hi this is Zacson
+            <br /> <span className={styles.titleSpan}>Gym Trainer</span>{" "}
+          </h1>
+
+          <AnimatedLinkFill
+            className={styles.coursesLink}
+            variant="fill"
+            href="/courses"
+          >
+            My Courses
+          </AnimatedLinkFill>
         </div>
       </section>
 
-      <Loader/>
-      <LoaderWave/>
-      <LoaderCoin/>
-
       {/* Training Categories */}
-      <section className={styles.trainingCategories}>
-        <h2>Training Categories</h2>
-        <div className={styles.cardsWrapper}>
-          <div className={styles.card}>
-            <h3>Personal Training</h3>
-            <p>One-on-one sessions tailored to your goals.</p>
-            <Link href="/courses">View Courses</Link>
-          </div>
-          <div className={styles.card}>
-            <h3>Group Training</h3>
-            <p>Train with others in a motivating environment.</p>
-            <Link href="/courses">View Courses</Link>
-          </div>
-        </div>
+      <section className={`container ${styles.trainingCategories}`}>
+        <h2 className={styles.categoriesTitle}>Training Categories</h2>
+        <ul className={styles.cardsWrapper}>
+          <li className={`${styles.card} ${styles.card1}`}>
+            <h3 className={styles.cardTitle}>Personal Training</h3>
+            <p className={styles.cardText}>
+              You’ll look at graphs and charts in Task One, how to approach the
+              task and the language needed for a successful answer.
+            </p>
+            <AnimatedLinkFill variant="fill" href="/courses">
+              View Courses
+            </AnimatedLinkFill>
+          </li>
+          <li className={`${styles.card} ${styles.card2}`}>
+            <h3 className={styles.cardTitle}>Group Training</h3>
+            <p className={styles.cardText}>
+              You’ll look at graphs and charts in Task One, how to approach the
+              task and the language needed for a successful answer.
+            </p>
+            <AnimatedLinkFill href="/contact">View Courses</AnimatedLinkFill>
+          </li>
+        </ul>
       </section>
 
       {/* What I Offer */}
-      <section className={styles.offers}>
-        <h2>What I Offer</h2>
-        <div className={styles.cardsWrapper}>
-          <div className={styles.card}>
-            <h3>Body Building</h3>
-            <p>Professional support to build your dream physique.</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Muscle Gain</h3>
-            <p>Structured plans to increase your strength and size.</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Weight Loss</h3>
-            <p>Effective workouts to help you shred fat and stay fit.</p>
-          </div>
-        </div>
+      <section className={`container ${styles.offers}`}>
+        <h2 className={styles.offersTitle}>What I Offer</h2>
+        <ul className={styles.offersCardsWrapper}>
+          <li className={styles.offersCard}>
+            <img
+              className={styles.offersCardImage}
+              src="/images/team1.png"
+              alt="Body Building Photo"
+            />
+
+            <h3 className={styles.offersCardTitle}>Body Building</h3>
+            <p className={styles.offersText}>
+              You’ll look at graphs and charts in Task One, how to approach the
+              task
+            </p>
+          </li>
+          <li className={styles.offersCard}>
+            <img
+              className={styles.offersCardImage}
+              src="/images/team2.png"
+              alt="Muscle Gain Photo"
+            />
+            <h3 className={styles.offersCardTitle}>Muscle Gain</h3>
+            <p className={styles.offersText}>
+              You’ll look at graphs and charts in Task One, how to approach the
+              task
+            </p>
+          </li>
+          <li className={styles.offersCard}>
+           <img
+              className={styles.offersCardImage}
+              src="/images/team3.png"
+              alt="Weight Loss Photo"
+            />
+            <h3 className={styles.offersCardTitle}>Weight Loss</h3>
+            <p className={styles.offersText}>
+              You’ll look at graphs and charts in Task One, how to approach the
+              task
+            </p>
+          </li>
+        </ul>
       </section>
 
       {/* Video Banner */}

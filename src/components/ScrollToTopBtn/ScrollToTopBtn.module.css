@@ -1,0 +1,19 @@
+.scrollTopBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #950101;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.scrollTopBtn:hover {
+  opacity: 1;
+}

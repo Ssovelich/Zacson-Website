@@ -3,6 +3,7 @@ import styles from "@/styles/Layout.module.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { Oswald } from "next/font/google";
+import ScrollToTopBtn from "@/components/ScrollToTopBtn/ScrollToTopBtn";
 
 const oswald = Oswald({
   subsets: ["latin", "cyrillic"],
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
         <Header />
         <main className={styles.main}>{children}</main>
         <Footer />
+        <ScrollToTopBtn />
       </body>
     </html>
   );

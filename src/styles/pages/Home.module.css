@@ -1,39 +1,189 @@
-/* /src/styles/Home.module.css */
+/* Hero Section */
 .hero {
-  background: url('/images/hero-bg.png') no-repeat center/cover;
-  padding: 150px 0;
+  background: url("/images/hero-bg.png") no-repeat center/cover;
+  padding: 150px 0 60px;
   color: white;
-  text-align: center;
+  background-attachment: fixed;/*фон залишається нерухомим*/
 }
 
-.heroContent h1 {
-  font-size: 2.5rem;
+.heroTitle {
+  font-size: 33px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px #f6f7f8;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
 }
-
-.heroButton {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: #f44;
-  color: white;
-  border-radius: 5px;
+.titleSpan {
+  font-size: 44px;
+  -webkit-text-stroke: 0;
+  -webkit-text-fill-color: #fff;
+  color: #fff;
 }
-
+/* Training Categories */
+.trainingCategories {
+  display: flex;
+  flex-direction: column;
+}
+.categoriesTitle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 .cardsWrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+}
+.card1 {
+  background-image: url("/images/card1.png");
+}
+.card2 {
+  background-image: url("/images/card2.png");
+}
+.cardTitle {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 17px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cardText {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* Offers */
+.offers {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.offersTitle {
+  font-size: 45px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px #f6f7f8;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.offersCardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.offersCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 100%;
+  padding: 15px 0;
 }
 
-.card {
-  background: #fafafa;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.offersCardImage{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 30px;
+  display: block;
+}
+.offersCardTitle {
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.offersText {
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
+  /* Hero Section */
+  .hero {
+    padding: 220px 0 150px;
+  }
+  .title {
+    font-size: 50px;
+  }
+  .titleSpan {
+    font-size: 70px;
+  }
+  /* Training Categories */
+  .cardTitle {
+    font-size: 50px;
+  }
+  .cardText {
+    padding-inline: 128px;
+  }
+  /* Offers */
+  .offers {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .offersTitle {
+    font-size: 50px;
+  }
+  .offersCardsWrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .offersCard {
+       flex: 0 1 calc((100% - 20px) / 2);
+  }
+  
+  .offersCardTitle {
+    font-size: 30px;
+  }
+  .offersText {
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* Hero Section */
+  .hero {
+    padding: 280px 0 200px;
+  }
+  .title {
+    font-size: 70px;
+  }
+  .titleSpan {
+  }
+  /* Training Categories */
   .cardsWrapper {
     flex-direction: row;
+    gap: 20px;
+  }
+  .card {
+    max-width: 50%;
+  }
+  .cardText {
+    padding-inline: 82x;
+  }
+  /* Offers */
+  .offersTitle {
+    font-size: 140px;
+  }
+  .offersCard {
+       flex: 0 1 calc((100% - 40px) / 3);
   }
 }

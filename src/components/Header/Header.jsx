@@ -3,14 +3,23 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
 import MobileMenu from "../MobileMenu/MobileMenu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AnimatedLinkFill from "../AnimatedLinkFill/AnimatedLinkFill";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 150);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className={styles.header}>
+   <header className={`${styles.header} ${isScrolled ? styles["header--scrolled"] : ""}`}>
       <div className={`container ${styles.headerContainer}`}>
         <Link href="/" className={styles.logo}>
           <img src="/logo.png" alt="logo" width={95} height={45} />
