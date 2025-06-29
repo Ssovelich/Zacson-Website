@@ -1,7 +1,7 @@
 import AnimatedLinkFill from "@/components/AnimatedLinkFill/AnimatedLinkFill";
 import styles from "@/styles/pages/Home.module.css";
-import Link from "next/link";
-// import Image from "next/image";
+// import Link from "next/link";
+import { FaPlay } from "react-icons/fa";
 
 export default function HomePage() {
   return (
@@ -95,9 +95,9 @@ export default function HomePage() {
 
       {/* Video Banner */}
       <section className={styles.videoBanner}>
-        <div className={styles.videoContent}>
-          <h2>Watch Our Training in Action</h2>
-          <button className={styles.playButton}>▶ Play Video</button>
+        <div className={`container ${styles.videoContent}`}>
+          <h2 className={styles.videoTitle}>Watch Our Training in Action</h2>
+          <button className={styles.playButton}><FaPlay /></button>
         </div>
       </section>
     </div>
