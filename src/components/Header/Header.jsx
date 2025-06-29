@@ -9,13 +9,23 @@ import AnimatedLinkFill from "../AnimatedLinkFill/AnimatedLinkFill";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 150);
+    const updateScrolled = () => {
+      const screenWidth = window.innerWidth;
+      const threshold = screenWidth < 768 ? 90 : 150;
+      setIsScrolled(window.scrollY > threshold);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    updateScrolled(); // одразу при завантаженні
+    window.addEventListener("scroll", updateScrolled);
+    window.addEventListener("resize", updateScrolled);
+
+    return () => {
+      window.removeEventListener("scroll", updateScrolled);
+      window.removeEventListener("resize", updateScrolled);
+    };
   }, []);
 
   return (

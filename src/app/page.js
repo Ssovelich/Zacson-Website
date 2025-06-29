@@ -8,7 +8,8 @@ export default function HomePage() {
     <div>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.heroContent}>
+        <div className={`container ${styles.heroContent}`}>
+          
           <h1 className={styles.heroTitle}>
             Hi this is Zacson
             <br /> <span className={styles.titleSpan}>Gym Trainer</span>{" "}
@@ -79,7 +80,7 @@ export default function HomePage() {
             </p>
           </li>
           <li className={styles.offersCard}>
-           <img
+            <img
               className={styles.offersCardImage}
               src="/images/team3.png"
               alt="Weight Loss Photo"
