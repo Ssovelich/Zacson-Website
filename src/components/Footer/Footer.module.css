@@ -61,14 +61,20 @@
 .footerBottom {
   padding: 40px 0;
 }
-
 .copyright {
   font-size: 14px;
   color: #999;
   text-align: center;
 }
 @media (min-width: 768px) {
+    .footerTop {
+  padding-top: 100px;
+ }
 }
 
 @media screen and (min-width: 1024px) {
+    .footerTop {
+  padding-top: 110px;
+  padding-bottom: 70px;
+}
 }
