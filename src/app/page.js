@@ -1,9 +1,13 @@
+"use client";
+
 import AnimatedLinkFill from "@/components/AnimatedLinkFill/AnimatedLinkFill";
 import styles from "@/styles/pages/Home.module.css";
+import { useState } from "react";
 // import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 
 export default function HomePage() {
+   const [showVideo, setShowVideo] = useState(false);
   return (
     <div>
       {/* Hero Section */}
@@ -97,7 +101,23 @@ export default function HomePage() {
       <section className={styles.videoBanner}>
         <div className={`container ${styles.videoContent}`}>
           <h2 className={styles.videoTitle}>Watch Our Training in Action</h2>
-          <button className={styles.playButton}><FaPlay /></button>
+           {!showVideo ? (
+          <button className={styles.playButton} onClick={() => setShowVideo(true)}>
+            <FaPlay />
+          </button>
+        ) : (
+          <div className={styles.videoWrapper}>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/kAUVOHB3XYM?autoplay=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
         </div>
       </section>
     </div>
