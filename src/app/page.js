@@ -3,6 +3,45 @@ import TrainingCategories from "@/components/Home/TrainingCategories";
 import VideoBanner from "@/components/Home/VideoBanner";
 import WhatIOffer from "@/components/Home/WhatIOffer";
 
+export const metadata = {
+  title: "Zacson | Gym Trainer & Fitness Coach",
+  description:
+    "Explore fitness programs with Zacson – personal and group training for all levels. Get fit, stay strong.",
+  keywords: [
+    "Zacson",
+    "Gym",
+    "Fitness",
+    "Trainer",
+    "Bodybuilding",
+    "Muscle Gain",
+    "Weight Loss",
+  ],
+  openGraph: {
+    title: "Zacson | Gym Trainer",
+    description: "Explore top fitness programs with Zacson.",
+    // url: "https://yourdomain.com", // заміни на свій
+    siteName: "Zacson Fitness Club",
+    images: [
+      {
+        url: "/images/og-image.jpg", // має існувати в /public
+        width: 1200,
+        height: 630,
+        alt: "Zacson Gym",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zacson | Gym Trainer",
+    description: "Explore top training programs with Zacson.",
+    images: ["/images/og-image.jpg"],
+  },
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
 const HomePage = () => {
   return (
     <div>
