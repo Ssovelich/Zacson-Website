@@ -33,7 +33,7 @@
 }
 .socials {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 .socialsItem {
 }
@@ -70,11 +70,16 @@
     .footerTop {
   padding-top: 100px;
  }
+ .socials {
+    gap: 16px;
+}
 }
 
 @media screen and (min-width: 1024px) {
     .footerTop {
-  padding-top: 110px;
-  padding-bottom: 70px;
+  padding: 110px 0;
+}
+ .socials {
+    gap: 20px;
 }
 }
