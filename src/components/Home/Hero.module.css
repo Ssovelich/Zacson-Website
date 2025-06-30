@@ -1,0 +1,44 @@
+.hero {
+  background: url("/images/hero-bg.png") no-repeat center/cover;
+  padding: 150px 0 60px;
+  color: white;
+  background-attachment: fixed; /*фон залишається нерухомим*/
+}
+
+.heroTitle {
+  font-size: 33px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px #f6f7f8;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+.titleSpan {
+  font-size: 44px;
+  -webkit-text-stroke: 0;
+  -webkit-text-fill-color: #fff;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 220px 0 150px;
+  }
+  .title {
+    font-size: 50px;
+  }
+  .titleSpan {
+    font-size: 70px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero {
+    padding: 280px 0 200px;
+  }
+  .title {
+    font-size: 70px;
+  }
+  .titleSpan {
+  }
+}

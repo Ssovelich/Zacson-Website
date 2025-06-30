@@ -1,3 +1,4 @@
+import AnimatedLinkFill from "../AnimatedLinkFill/AnimatedLinkFill"
 import styles from "./TrainingCategories.module.css"
 
 const TrainingCategories = () => {

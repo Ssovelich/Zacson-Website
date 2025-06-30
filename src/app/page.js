@@ -1,17 +1,25 @@
-"use client";
 
-import AnimatedLinkFill from "@/components/AnimatedLinkFill/AnimatedLinkFill";
+
+// import AnimatedLinkFill from "@/components/AnimatedLinkFill/AnimatedLinkFill";
+import Hero from "@/components/Home/Hero";
+import TrainingCategories from "@/components/Home/TrainingCategories";
+import VideoBanner from "@/components/Home/VideoBanner";
+import WhatIOffer from "@/components/Home/WhatIOffer";
 import styles from "@/styles/pages/Home.module.css";
-import { useState } from "react";
+// import { useState } from "react";
 // import Link from "next/link";
-import { FaPlay } from "react-icons/fa";
+// import { FaPlay } from "react-icons/fa";
 
 export default function HomePage() {
-   const [showVideo, setShowVideo] = useState(false);
+  
   return (
     <div>
+      <Hero/>
+      <TrainingCategories/>
+      <WhatIOffer/>
+      <VideoBanner/>
       {/* Hero Section */}
-      <section className={styles.hero}>
+      {/* <section className={styles.hero}>
         <div className={`container ${styles.heroContent}`}>
           <h1 className={styles.heroTitle}>
             Hi this is Zacson
@@ -26,7 +34,7 @@ export default function HomePage() {
             My Courses
           </AnimatedLinkFill>
         </div>
-      </section>
+      </section> */}
 
       {/* Training Categories */}
       {/* <section className={`container ${styles.trainingCategories}`}>
