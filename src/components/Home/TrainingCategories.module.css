@@ -19,7 +19,7 @@
   flex-direction: column;
 }
 .card {
-  display: flex;
+   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -28,11 +28,13 @@
   background-size: cover;
   background-position: center;
   padding: 60px 0;
-}
-.card1 {
+  color: white;
+  text-align: center;
+ }
+.card:nth-child(1) {
   background-image: url("/images/card1.png");
 }
-.card2 {
+.card:nth-child(2) {
   background-image: url("/images/card2.png");
 }
 .cardTitle {

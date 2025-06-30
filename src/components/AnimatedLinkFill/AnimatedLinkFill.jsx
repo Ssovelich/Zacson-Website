@@ -3,12 +3,12 @@
 import Link from "next/link";
 import styles from "./AnimatedLinkFill.module.css";
 
-export default function AnimatedLinkFill({
+const AnimatedLinkFill = ({
   href = "/contact",
   children = "Contact me",
   variant = "darken",
   className = "",
-}) {
+}) => {
   const combinedClassName = [
     styles.link,
     variant === "fill" && styles["link--outline"],
@@ -23,3 +23,5 @@ export default function AnimatedLinkFill({
     </Link>
   );
 }
+
+export default AnimatedLinkFill;
