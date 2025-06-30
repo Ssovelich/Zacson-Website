@@ -1,0 +1,72 @@
+.trainingCategories {
+  display: flex;
+  flex-direction: column;
+}
+/*Title не займає місце, але читається рідерами*/
+.categoriesTitle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+}
+.card1 {
+  background-image: url("/images/card1.png");
+}
+.card2 {
+  background-image: url("/images/card2.png");
+}
+.cardTitle {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 17px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cardText {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .cardTitle {
+    font-size: 50px;
+  }
+  .cardText {
+    padding-inline: 128px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cardsWrapper {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .card {
+    max-width: 50%;
+  }
+  .cardText {
+    padding-inline: 82x;
+  }
+}

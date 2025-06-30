@@ -29,7 +29,7 @@ export default function HomePage() {
       </section>
 
       {/* Training Categories */}
-      <section className={`container ${styles.trainingCategories}`}>
+      {/* <section className={`container ${styles.trainingCategories}`}>
         <h2 className={styles.categoriesTitle}>Training Categories</h2>
         <ul className={styles.cardsWrapper}>
           <li className={`${styles.card} ${styles.card1}`}>
@@ -51,10 +51,10 @@ export default function HomePage() {
             <AnimatedLinkFill href="/contact">View Courses</AnimatedLinkFill>
           </li>
         </ul>
-      </section>
+      </section> */}
 
       {/* What I Offer */}
-      <section className={`container ${styles.offers}`}>
+      {/* <section className={`container ${styles.offers}`}>
         <h2 className={styles.offersTitle}>What I Offer</h2>
         <ul className={styles.offersCardsWrapper}>
           <li className={styles.offersCard}>
@@ -95,10 +95,10 @@ export default function HomePage() {
             </p>
           </li>
         </ul>
-      </section>
+      </section> */}
 
       {/* Video Banner */}
-      <section className={styles.videoBanner}>
+      {/* <section className={styles.videoBanner}>
         <div className={`container ${styles.videoContent}`}>
           <h2 className={styles.videoTitle}>Watch Our Training in Action</h2>
            {!showVideo ? (
@@ -119,7 +119,7 @@ export default function HomePage() {
           </div>
         )}
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
