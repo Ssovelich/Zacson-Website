@@ -6,7 +6,7 @@
   z-index: 99;
   padding-top: 20px;
   padding-bottom: 20px;
-  transition: background 0.3s ease;
+  transition: background 0.5s ease;
 }
 .header--scrolled {
   background: linear-gradient(to bottom, #950101 0%, #630102 50%, #3d0302 100%);
