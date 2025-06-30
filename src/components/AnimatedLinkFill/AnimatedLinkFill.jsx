@@ -18,10 +18,8 @@ export default function AnimatedLinkFill({
     .join(" ");
 
   return (
-    <Link href={href} legacyBehavior>
-      <a className={combinedClassName}>
-        <span className={styles.label}>{children}</span>
-      </a>
+    <Link href={href} className={combinedClassName}>
+      <span className={styles.label}>{children}</span>
     </Link>
   );
 }
