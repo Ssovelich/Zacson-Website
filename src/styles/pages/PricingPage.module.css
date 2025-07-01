@@ -10,6 +10,24 @@
   font-weight: 700;
   text-transform: uppercase;
 }
+.pricingContent{}
+.list{}
+.card{
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 36px 24px 25px 24px;
+}
+.headerCard{}
+.icon{}
+.titleCard{}
+.duration{}
+.price{}
+.billing{}
+.features{
+
+}
+.featureItem{}
+.checkIcon{}
+
 
 @media (min-width: 768px) {
   .bg {
