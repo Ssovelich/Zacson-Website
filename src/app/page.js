@@ -23,7 +23,7 @@ export const metadata = {
     siteName: "Zacson Fitness Club",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "https://zacson-fitness-club.vercel.app/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Zacson Gym",
@@ -35,7 +35,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Zacson | Gym Trainer",
     description: "Explore top training programs with Zacson.",
-    images: ["/images/og-image.jpg"],
+    images: ["https://zacson-fitness-club.vercel.app/images/og-image.png"],
   },
   icons: {
     icon: "/favicon.png",
