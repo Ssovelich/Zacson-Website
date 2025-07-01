@@ -16,8 +16,7 @@ const PricingPage = () => {
         <h1 className={`container ${styles.title}`}>Pricing</h1>
       </div>
       <div className={`container ${styles.pricingContent}`}>
-        
-          <div className={`container ${styles.list}`}>
+        <div className={`container ${styles.list}`}>
           {pricingData.map((plan) => (
             <article key={plan.id} className={styles.card}>
               <div className={styles.iconWrap}>
@@ -32,7 +31,6 @@ const PricingPage = () => {
                 <strong>{plan.price}</strong>&nbsp;
                 <span className={styles.billing}>({plan.billing})</span>
               </p>
-              {/* <p className={styles.billing}>{plan.billing}</p> */}
               <ul
                 className={styles.features}
                 aria-label={`${plan.title} features`}
