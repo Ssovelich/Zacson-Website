@@ -11,9 +11,10 @@
   text-transform: uppercase;
 }
 .pricingContent {
-    padding: 40px 0 20px;
+  padding: 40px 0 20px;
 }
-.list {display: flex;
+.list {
+  display: flex;
   flex-direction: column;
   gap: 16px;
 }
@@ -23,7 +24,7 @@
   background: rgba(255, 255, 255, 0.074);
 }
 .iconWrap {
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   background: #ff0000;
@@ -36,36 +37,35 @@
 .icon {
 }
 .titleCard {
-    font-size: 28px;
-    font-weight: 500;
+  font-size: 28px;
+  font-weight: 500;
 }
 .duration {
 }
 .price {
-    font-size: 30px;
-    font-weight: 500;
-    color: #ff0000;
-    margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #ff0000;
+  margin-bottom: 20px;
 }
 .billing {
-    font-size: 14px;
-    color: white;
-    
+  font-size: 14px;
+  color: white;
 }
 .features {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .featureItem {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 .checkIcon {
-    margin-left: 16px;
-    color: #ff0000;
+  margin-left: 16px;
+  color: #ff0000;
 }
 
 @media (min-width: 768px) {
@@ -78,15 +78,15 @@
   }
   .pricingContent {
     padding: 80px 0 30px;
-}
-.list{
+  }
+  .list {
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 30px;
-}
-.card{
+  }
+  .card {
     flex: 0 1 calc((100% - 20px) / 2);
-}
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -97,11 +97,13 @@
   .title {
     font-size: 70px;
   }
-   .pricingContent {
+  .pricingContent {
     padding: 100px 0 40px;
-}
-.card{ flex: 0 1 calc((100% - 40px) / 3);}
-.titleCard {
+  }
+  .card {
+    flex: 0 1 calc((100% - 40px) / 3);
+  }
+  .titleCard {
     font-size: 25px;
-}
+  }
 }

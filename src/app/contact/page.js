@@ -10,21 +10,22 @@ const ContactPage = () => {
         <h1 className={`container ${styles.title}`}>Contact</h1>
       </div>
       <div className={`container ${styles.contactContent}`}>
-        <ul className={styles.contactList}>
+        <ul className={`container ${styles.contactList}`}>
+           
           <li className={styles.contactItem}>
             <div className={styles.iconWrap}>
-              <FaLocationDot size={30} />
+              <FaLocationDot size={28} />
             </div>
             <div className={styles.contactDetails}>
               <h3 className={styles.titleItem}>Location</h3>
               <p className={styles.text}>
-                Buttonwood, California. <span>Rosemead, CA 91770</span>
+                Buttonwood, California.<br/> <span>Rosemead, CA 91770</span>
               </p>
             </div>
           </li>
           <li className={styles.contactItem}>
             <div className={styles.iconWrap}>
-              <FaPhoneAlt size={30} />
+              <FaPhoneAlt size={24} />
             </div>
             <div className={styles.contactDetails}>
               <h3 className={styles.titleItem}>Phone</h3>
