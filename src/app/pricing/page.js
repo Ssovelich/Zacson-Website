@@ -16,7 +16,8 @@ const PricingPage = () => {
         <h1 className={`container ${styles.title}`}>Pricing</h1>
       </div>
       <div className={`container ${styles.pricingContent}`}>
-        <div className={styles.list}>
+        
+          <div className={`container ${styles.list}`}>
           {pricingData.map((plan) => (
             <article key={plan.id} className={styles.card}>
               <div className={styles.iconWrap}>
