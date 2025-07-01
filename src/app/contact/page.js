@@ -11,7 +11,6 @@ const ContactPage = () => {
       </div>
       <div className={`container ${styles.contactContent}`}>
         <ul className={`container ${styles.contactList}`}>
-           
           <li className={styles.contactItem}>
             <div className={styles.iconWrap}>
               <FaLocationDot size={28} />
@@ -19,7 +18,8 @@ const ContactPage = () => {
             <div className={styles.contactDetails}>
               <h3 className={styles.titleItem}>Location</h3>
               <p className={styles.text}>
-                Buttonwood, California.<br/> <span>Rosemead, CA 91770</span>
+                Buttonwood, California.
+                <br /> <span>Rosemead, CA 91770</span>
               </p>
             </div>
           </li>
