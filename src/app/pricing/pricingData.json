@@ -1,0 +1,72 @@
+[
+  {
+    "id": "one-day",
+    "title": "One-Day Entry",
+    "duration": "1 day",
+    "price": "$5",
+    "billing": "Single entry",
+    "features": [
+      "Full-day access to gym",
+      "Use of all equipment",
+      "One group class included",
+      "Ideal for trial sessions",
+      "No registration needed"
+    ]
+  },
+  {
+    "id": "basic-plan",
+    "title": "Basic Plan",
+    "duration": "1 month",
+    "price": "$40/m",
+    "billing": "Single class",
+    "features": [
+      "Free riding",
+      "Access to gym equipment",
+      "Group training sessions",
+      "Fitness assessment",
+      "No commitment"
+    ]
+  },
+  {
+    "id": "quarter-plan",
+    "title": "3-Month Plan",
+    "duration": "3 months",
+    "price": "$35/m",
+    "billing": "Unlimited access",
+    "features": [
+      "Full gym access for 90 days",
+      "All group classes included",
+      "Locker & shower access",
+      "Monthly progress tracking",
+      "Flexible renewal options"
+    ]
+  },
+  {
+    "id": "standard-plan",
+    "title": "Standard Plan",
+    "duration": "6 months",
+    "price": "$30/m",
+    "billing": "Single class",
+    "features": [
+      "Free riding",
+      "Unlimited equipment",
+      "Certified personal trainer",
+      "Muscle gain programs",
+      "Progress tracking"
+    ]
+  },
+  {
+    "id": "premium-plan",
+    "title": "Premium Plan",
+    "duration": "12 months",
+    "price": "$25/m",
+    "billing": "Unlimited classes",
+    "features": [
+      "Free riding",
+      "Unlimited equipment",
+      "Dedicated personal trainer",
+      "Nutrition consultation",
+      "Priority support"
+    ]
+  }
+]
