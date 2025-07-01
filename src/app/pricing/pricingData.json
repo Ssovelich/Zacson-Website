@@ -18,7 +18,7 @@
     "title": "Basic Plan",
     "duration": "1 month",
     "price": "$40/m",
-    "billing": "Single class",
+    "billing": "Unlimited access",
     "features": [
       "Free riding",
       "Access to gym equipment",
@@ -46,7 +46,7 @@
     "title": "Standard Plan",
     "duration": "6 months",
     "price": "$30/m",
-    "billing": "Single class",
+    "billing": "Unlimited access",
     "features": [
       "Free riding",
       "Unlimited equipment",
@@ -60,7 +60,7 @@
     "title": "Premium Plan",
     "duration": "12 months",
     "price": "$25/m",
-    "billing": "Unlimited classes",
+    "billing": "Unlimited access",
     "features": [
       "Free riding",
       "Unlimited equipment",

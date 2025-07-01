@@ -19,17 +19,19 @@ const PricingPage = () => {
         <div className={styles.list}>
           {pricingData.map((plan) => (
             <article key={plan.id} className={styles.card}>
-              <div className={styles.headerCard}>
-                <CgGym className={styles.icon} />
-                <h3 className={styles.titleCard}>
-                  {plan.title}
-                  <span className={styles.duration}>({plan.duration})</span>
-                </h3>
+              <div className={styles.iconWrap}>
+                <CgGym size={30} />
               </div>
+              <h3 className={styles.titleCard}>
+                {plan.title}&nbsp;
+                <span className={styles.duration}>({plan.duration})</span>
+              </h3>
+
               <p className={styles.price}>
-                <strong>{plan.price}</strong>
+                <strong>{plan.price}</strong>&nbsp;
+                <span className={styles.billing}>({plan.billing})</span>
               </p>
-              <p className={styles.billing}>{plan.billing}</p>
+              {/* <p className={styles.billing}>{plan.billing}</p> */}
               <ul
                 className={styles.features}
                 aria-label={`${plan.title} features`}

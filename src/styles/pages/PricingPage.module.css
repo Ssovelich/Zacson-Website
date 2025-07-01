@@ -10,24 +10,61 @@
   font-weight: 700;
   text-transform: uppercase;
 }
-.pricingContent{}
-.list{}
-.card{
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 36px 24px 25px 24px;
+.pricingContent {
+    padding: 40px 0 20px;
 }
-.headerCard{}
-.icon{}
-.titleCard{}
-.duration{}
-.price{}
-.billing{}
-.features{
-
+.list {display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.featureItem{}
-.checkIcon{}
-
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 36px 24px 25px 24px;
+  background: rgba(255, 255, 255, 0.074);
+}
+.iconWrap {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff0000;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+.icon {
+}
+.titleCard {
+    font-size: 30px;
+    font-weight: 500;
+}
+.duration {
+}
+.price {
+    font-size: 30px;
+    font-weight: 500;
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+.billing {
+    font-size: 14px;
+    color: white;
+    
+}
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.featureItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.checkIcon {
+}
 
 @media (min-width: 768px) {
   .bg {
@@ -37,6 +74,9 @@
   .title {
     font-size: 50px;
   }
+  .pricingContent {
+    padding: 80px 0 30px;
+}
 }
 
 @media screen and (min-width: 1024px) {
@@ -47,4 +87,7 @@
   .title {
     font-size: 70px;
   }
+   .pricingContent {
+    padding: 100px 0 40px;
+}
 }
