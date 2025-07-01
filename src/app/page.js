@@ -19,11 +19,11 @@ export const metadata = {
   openGraph: {
     title: "Zacson | Gym Trainer",
     description: "Explore top fitness programs with Zacson.",
-    // url: "https://yourdomain.com", // заміни на свій
+    url: "https://zacson-fitness-club.vercel.app/",
     siteName: "Zacson Fitness Club",
     images: [
       {
-        url: "/images/og-image.jpg", // має існувати в /public
+        url: "/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Zacson Gym",
