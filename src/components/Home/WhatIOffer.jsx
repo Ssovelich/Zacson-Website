@@ -14,10 +14,10 @@ const WhatIOffer = () => {
 
             <h3 className={styles.offersCardTitle}>Body Building</h3>
             <p className={styles.offersText}>
-              You’ll look at graphs and charts in Task One, how to approach the
-              task
+              Build strength, size, and definition with our intensive bodybuilding program.
             </p>
           </li>
+
           <li className={styles.offersCard}>
             <img
               className={styles.offersCardImage}
@@ -26,10 +26,10 @@ const WhatIOffer = () => {
             />
             <h3 className={styles.offersCardTitle}>Muscle Gain</h3>
             <p className={styles.offersText}>
-              You’ll look at graphs and charts in Task One, how to approach the
-              task
+              Gain lean muscle mass with structured strength and hypertrophy training.
             </p>
           </li>
+
           <li className={styles.offersCard}>
             <img
               className={styles.offersCardImage}
@@ -38,8 +38,7 @@ const WhatIOffer = () => {
             />
             <h3 className={styles.offersCardTitle}>Weight Loss</h3>
             <p className={styles.offersText}>
-              You’ll look at graphs and charts in Task One, how to approach the
-              task
+              Burn fat and boost your energy with our dynamic weight loss sessions.
             </p>
           </li>
         </ul>

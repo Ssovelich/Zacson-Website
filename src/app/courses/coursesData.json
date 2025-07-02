@@ -1,0 +1,20 @@
+[
+  {
+    "id": "body-building",
+    "title": "Body Building",
+    "description": "Our Body Building course is designed to help you sculpt a powerful physique through advanced resistance training, progressive overload, and expert coaching. Whether you're preparing for competition or aiming for personal transformation, this program focuses on muscle hypertrophy, technique, and discipline to maximize your physical potential.",
+    "image": "team1.png"
+  },
+  {
+    "id": "muscle-gain",
+    "title": "Muscle Gain",
+    "description": "The Muscle Gain program targets those looking to increase muscle volume, strength, and endurance in a balanced way. You’ll follow a tailored workout plan combining weightlifting, compound movements, and optimal nutrition strategies to help you bulk up effectively and safely — regardless of your current fitness level.",
+    "image": "team2.png"
+  },
+  {
+    "id": "weight-loss",
+    "title": "Weight Loss",
+    "description": "Our Weight Loss course is built to help you shed excess weight through a combination of cardio, strength training, and metabolic conditioning. Guided by professional trainers, you'll engage in fat-burning routines, develop healthier habits, and achieve sustainable results while improving your overall fitness and energy levels.",
+    "image": "team3.png"
+  }
+]

@@ -41,7 +41,7 @@ const Hero = () => {
           variant="fill"
           href="/courses"
         >
-          My Courses
+         View Courses
         </AnimatedLinkFill>
       </div>
     </section>
