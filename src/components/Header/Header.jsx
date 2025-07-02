@@ -49,7 +49,7 @@ const Header = () => {
             </Link>
           ))}
         </nav>
-        <AnimatedLinkFill className={styles.messageLink} href="/contact">Message me</AnimatedLinkFill>
+        <AnimatedLinkFill className={styles.messageLink} href="/message">Message me</AnimatedLinkFill>
         {/* <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
           Hire me
         </AnimatedLinkFill> */}

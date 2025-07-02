@@ -1,6 +1,12 @@
 import styles from "@/./styles/pages/CoursesPage.module.css";
 import coursesData from "./coursesData.json";
 
+export const metadata = {
+  title: "Courses | Zacson Fitness Club",
+  description:
+    "Discover Zacson’s range of expert‑led fitness courses—including Body Building, Muscle Gain, and Weight Loss—and choose the perfect program to reach your goals.",
+};
+
 const CoursesPage = () => {
   return (
     <>
