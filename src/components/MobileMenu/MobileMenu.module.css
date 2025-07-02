@@ -15,7 +15,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
+  width: 95%;
   background: white;
   color: black;
   padding: 80px 90px 60px;
@@ -48,9 +48,15 @@
   text-decoration: none;
   transition: all 0.5s ease;
 }
+.navLink:last-child { 
+  margin-top: 20px; 
+}
 .navLink:hover {
   color: #ff4d2e;
   text-decoration: underline;
+}
+
+@media (min-width: 768px) {
 }
 
 @keyframes fadeIn {

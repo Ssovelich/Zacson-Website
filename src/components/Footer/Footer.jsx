@@ -15,7 +15,6 @@ const Footer = () => {
     ["Courses", "/courses"],
     ["Pricing", "/pricing"],
     ["Gallery", "/gallery"],
-    ["Blog", "/blog"],
     ["Contact", "/contact"],
   ];
 

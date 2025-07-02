@@ -19,7 +19,7 @@
 .navDesktop {
   display: none;
 }
-.headerContainer .contactLink {
+.headerContainer .messageLink {
   display: none;
 }
 .burger {
@@ -74,7 +74,7 @@
   .header {
     padding: 0;
   }
-  .headerContainer .contactLink {
+  .headerContainer .messageLink {
     display: inline-flex; 
   }
   .burger {

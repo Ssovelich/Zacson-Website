@@ -10,6 +10,14 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
+  const navData = [
+    ["Home", "/"],
+    ["About", "/about"],
+    ["Courses", "/courses"],
+    ["Pricing", "/pricing"],
+    ["Gallery", "/gallery"],
+    ["Contact", "/contact"],
+  ];
 
   useEffect(() => {
     const updateScrolled = () => {
@@ -35,21 +43,13 @@ const Header = () => {
           <img src="/logo.png" alt="logo" width={95} height={45} />
         </Link>
         <nav className={styles.navDesktop}>
-          {[
-            ["Home", "/"],
-            ["About", "/about"],
-            ["Courses", "/courses"],
-            ["Pricing", "/pricing"],
-            ["Gallery", "/gallery"],
-            ["Blog", "/blog"],
-            ["Contact", "/contact"],
-          ].map(([label, href]) => (
+          {navData.map(([label, href]) => (
             <Link key={href} href={href} className={styles.navLink}>
               {label}
             </Link>
           ))}
         </nav>
-        <AnimatedLinkFill className={styles.contactLink} href="/contact">Contact me</AnimatedLinkFill>
+        <AnimatedLinkFill className={styles.messageLink} href="/contact">Message me</AnimatedLinkFill>
         {/* <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
           Hire me
         </AnimatedLinkFill> */}

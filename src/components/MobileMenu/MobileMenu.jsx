@@ -6,6 +6,16 @@ import { useEffect, useState } from "react";
 const MobileMenu = ({ isOpen, onCloseComplete }) => {
   const [isExiting, setIsExiting] = useState(false);
 
+  const navData = [
+    ["Home", "/"],
+    ["About", "/about"],
+    ["Courses", "/courses"],
+    ["Pricing", "/pricing"],
+    ["Gallery", "/gallery"],
+    ["Contact", "/contact"],
+    ["Message me", "/message"],
+  ];
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -56,15 +66,7 @@ const MobileMenu = ({ isOpen, onCloseComplete }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <nav className={styles.navMobile}>
-          {[
-            ["Home", "/"],
-            ["About", "/about"],
-            ["Courses", "/courses"],
-            ["Pricing", "/pricing"],
-            ["Gallery", "/gallery"],
-            ["Blog", "/blog"],
-            ["Contact", "/contact"],
-          ].map(([label, href]) => (
+          {navData.map(([label, href]) => (
             <a
               key={href}
               href={href}
