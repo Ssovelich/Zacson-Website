@@ -2,7 +2,8 @@ import styles from "@/./styles/pages/AboutPage.module.css";
 
 export const metadata = {
   title: "About Zacson | Professional Fitness Trainer",
-  description: "Learn more about Zacson – certified personal trainer and fitness coach with years of experience in helping clients achieve their health goals.",
+  description:
+    "Learn more about Zacson – certified personal trainer and fitness coach with years of experience in helping clients achieve their health goals.",
 };
 
 const AboutPage = () => {
@@ -13,7 +14,13 @@ const AboutPage = () => {
       </div>
 
       <div className={`container ${styles.aboutContent}`}>
-        
+        <img
+          commentMore
+          actions
+          src="/images/about.png"
+          alt="About Zacson"
+          className={styles.aboutImage}
+        />
         <div className={styles.aboutTextWrap}>
           <p className={styles.aboutText}>
             You’ll look at graphs and charts in Task One, how to approach the
