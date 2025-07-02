@@ -1,0 +1,72 @@
+.bg {
+  background: url("/images/page-bg.png") no-repeat center/cover;
+  padding: 132px 0 60px;
+  color: white;
+  background-attachment: fixed;
+  height: 260px;
+}
+.title {
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.coursesContent {
+  padding: 40px 0 20px;
+}
+.item {
+  margin-bottom: 32px;
+}
+.itemTitle {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.img {
+  width: 340px;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .bg {
+    padding: 185px 0 60px;
+    height: 350px;
+  }
+  .title {
+    font-size: 50px;
+  }
+  .coursesContent {
+    padding: 80px 0 30px;
+  }
+  .item {
+    margin-bottom: 36px;
+  }
+  .itemText {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.6;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bg {
+    padding: 200px 0 60px;
+    height: 450px;
+  }
+  .title {
+    font-size: 70px;
+  }
+  .coursesContent {
+    padding: 100px 0 40px;
+  }
+  .item {
+    margin-bottom: 40px;
+  }
+  .itemText {
+    font-size: 20px;
+   
+  }
+}

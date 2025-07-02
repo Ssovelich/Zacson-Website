@@ -12,6 +12,14 @@ const CoursesPage = () => {
           {coursesData.map((cours) => (
             <article key={cours.id} className={styles.item}>
               <h2 className={styles.itemTitle}>{cours.title}</h2>
+              <img
+                commentMore
+                actions
+                src={`/images/${cours.image}`}
+                alt={cours.title}
+                className={styles.img}
+                priority
+              />
               <p className={styles.itemText}>{cours.description}</p>
             </article>
           ))}
