@@ -19,18 +19,12 @@ const Footer = () => {
     ["Contact", "/contact"],
   ];
 
-  const socialLinks = [
-    { href: "https://twitter.com", icon: <FaTwitter size={14} /> },
-    { href: "https://www.facebook.com", icon: <FaFacebookF size={14} /> },
-    { href: "https://www.pinterest.com/", icon: <FaPinterestP size={14} /> },
-  ];
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     const node = socialsRef.current;
@@ -38,11 +32,18 @@ const Footer = () => {
     return () => node && observer.unobserve(node);
   }, []);
 
+  const socialLinks = [
+    { href: "https://twitter.com", icon: <FaTwitter size={14} /> },
+    { href: "https://www.facebook.com", icon: <FaFacebookF size={14} /> },
+    { href: "https://www.pinterest.com/", icon: <FaPinterestP size={14} /> },
+  ];
+
   return (
     <footer>
       <div className={`container ${styles.footerContainer}`}>
         <div className={styles.footerTop}>
           <h2 className={styles.footerTitle}>Zacson</h2>
+
           <nav className={styles.nav}>
             {navData.map(([label, href]) => (
               <Link key={href} href={href} className={styles.navLink}>
@@ -50,18 +51,18 @@ const Footer = () => {
               </Link>
             ))}
           </nav>
-          <ul
-            ref={socialsRef}
-            className={`${styles.socials} ${
-              isVisible ? styles.loopVisible : ""
-            }`}
-          >
+
+          <ul className={styles.socials} ref={socialsRef}>
             {socialLinks.map((link, index) => (
               <li
                 key={link.href}
-                className={styles.socialsItem}
+                className={`${styles.socialsItem} ${
+                  isVisible
+                    ? styles.socialsItemAnimate
+                    : styles.socialsItemHidden
+                }`}
                 style={{
-                  animationDelay: `${index * 0.3}s`,
+                  transitionDelay: `${index * 0.3}s`,
                 }}
               >
                 <Link
@@ -76,7 +77,9 @@ const Footer = () => {
             ))}
           </ul>
         </div>
+
         <hr className={styles.divider} />
+
         <div className={styles.footerBottom}>
           <p className={styles.copyright}>&copy; 2025 All rights reserved</p>
         </div>

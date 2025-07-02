@@ -2,9 +2,8 @@
   background: url("/images/hero-bg.png") no-repeat center/cover;
   padding: 150px 0 60px;
   color: white;
-  background-attachment: fixed; /*фон залишається нерухомим*/
+  background-attachment: fixed;
 }
-
 .heroTitle {
   font-size: 33px;
   font-weight: 700;
@@ -12,19 +11,27 @@
   -webkit-text-stroke: 1px #f6f7f8;
   -webkit-text-fill-color: transparent;
   margin-bottom: 40px;
+  opacity: 0;
+  transform: translateX(-50px);
 }
 .titleSpan {
   font-size: 44px;
   -webkit-text-stroke: 0;
   -webkit-text-fill-color: #fff;
   color: #fff;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.coursesLink {
+  opacity: 0;
+  transform: translateX(-50px);
 }
 
 @media (min-width: 768px) {
   .hero {
     padding: 220px 0 150px;
   }
-  .title {
+  .heroTitle {
     font-size: 50px;
   }
   .titleSpan {
@@ -36,9 +43,26 @@
   .hero {
     padding: 280px 0 200px;
   }
-  .title {
+  .heroTitle {
     font-size: 70px;
   }
-  .titleSpan {
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
   }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fadeInLeft {
+  animation: slideInLeft 0.6s ease forwards;
+}
+.fadeInLeftDelayed {
+  animation: slideInLeft 0.6s ease forwards;
+  animation-delay: 0.2s;
 }
