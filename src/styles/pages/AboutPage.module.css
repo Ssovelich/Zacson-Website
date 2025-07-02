@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-font-weight: normal;
-font-size: 18px;
+  font-weight: normal;
+  font-size: 18px;
 }
 
 @media (min-width: 768px) {
@@ -43,8 +43,8 @@ font-size: 18px;
     gap: 60px;
   }
   .aboutTextWrap {
-  gap: 18px;
-}
+    gap: 18px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -58,7 +58,7 @@ font-size: 18px;
   .aboutContent {
     padding: 100px 0 40px;
   }
-   .aboutTextWrap {
-  gap: 20px;
-}
+  .aboutTextWrap {
+    gap: 20px;
+  }
 }
