@@ -13,11 +13,7 @@ const AboutPage = () => {
       </div>
 
       <div className={`container ${styles.aboutContent}`}>
-        <img
-          src="/images/about.png"
-          alt="About Zacson"
-          className={styles.aboutImage}
-        />
+        
         <div className={styles.aboutTextWrap}>
           <p className={styles.aboutText}>
             You’ll look at graphs and charts in Task One, how to approach the
