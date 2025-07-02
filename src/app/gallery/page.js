@@ -1,5 +1,11 @@
 import styles from "@/styles/pages/GalleryPage.module.css";
 
+export const metadata = {
+  title: "Gallery | Zacson Fitness Club",
+  description:
+    "Explore our gallery to get a glimpse of Zacson’s state‑of‑the‑art facilities, energetic classes, and inspiring member transformations.",
+};
+
 const GalleryPage = () => {
   return (
     <>
