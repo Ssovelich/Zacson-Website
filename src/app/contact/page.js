@@ -3,6 +3,12 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 
+export const metadata = {
+  title: "Contact | Zacson Fitness Club",
+  description:
+    "Get in touch with Zacson Fitness Club. Find our location, contact details, and reach out to book a session or ask a question.",
+};
+
 const ContactPage = () => {
   return (
     <>

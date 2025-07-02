@@ -62,7 +62,7 @@ const Footer = () => {
                     : styles.socialsItemHidden
                 }`}
                 style={{
-                  transitionDelay: `${index * 0.3}s`,
+                  transitionDelay: `${index * 0.6}s`,
                 }}
               >
                 <Link
