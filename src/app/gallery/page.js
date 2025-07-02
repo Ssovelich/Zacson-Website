@@ -64,6 +64,13 @@ const GalleryPage = () => {
               className={styles.image}
             />
           </li>
+          <li className={styles.galleryItem}>
+            <img
+              src="/images/gallery9.png"
+              alt="image gallery 9"
+              className={styles.image}
+            />
+          </li>
         </ul>
       </div>
     </>

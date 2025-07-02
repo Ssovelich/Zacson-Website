@@ -13,13 +13,19 @@
 .galleryContent {
   padding: 40px 0 20px;
 }
-.galleryList{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-inline: 16px;
+.galleryList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-inline: 16px;
 }
-
+.image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+ 
 @media (min-width: 768px) {
   .bg {
     padding: 185px 0 60px;
@@ -30,9 +36,22 @@
   }
   .galleryContent {
     padding: 80px 0 30px;
-  }}
+  }
+  .galleryList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    padding-inline: 24px;
+  }
+  .galleryItem {
+    flex: 0 1 calc((100% - 20px) / 2);
+  }
+  .image {
+    height: 300px;
+  }
+}
 
-  @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .bg {
     padding: 200px 0 60px;
     height: 450px;
@@ -42,4 +61,11 @@
   }
   .galleryContent {
     padding: 100px 0 40px;
-  }}
+  }
+  .galleryItem {
+    flex: 0 1 calc((100% - 40px) / 3);
+  }
+  .image {
+    height: 350px;
+  }
+}
