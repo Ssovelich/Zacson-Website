@@ -4,13 +4,14 @@ import styles from "./MessageForm.module.css";
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import LoaderWave from "@/components/LoaderWave/LoaderWave";
-import toast from "react-hot-toast";
 import { messageSchema } from "@/validation/messageSchema";
 
 const MessageForm = () => {
   const formRef = useRef(null);
   const [submitting, setSubmitting] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
+
+  const [formStatus, setFormStatus] = useState(null); // ✅ status: { type, message }
 
   useEffect(() => {
     setHasMounted(true);
@@ -59,10 +60,12 @@ const MessageForm = () => {
         }
       });
       setErrors(fieldErrors);
+      setFormStatus({ type: "error", message: "Будь ласка, перевірте всі поля форми." });
       return;
     }
 
     setSubmitting(true);
+    setFormStatus(null);
 
     try {
       await emailjs.sendForm(
@@ -72,22 +75,36 @@ const MessageForm = () => {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
-      toast.success("Ваше повідомлення надіслано успішно! 💪");
+      setFormStatus({ type: "success", message: "Ваше повідомлення надіслано успішно! 💪" });
 
       formRef.current.reset();
       setValues({ name: "", phone: "", email: "", message: "" });
       setErrors({});
     } catch (err) {
       console.error(err);
-      toast.error("Сталася помилка. Спробуйте ще раз.");
+      setFormStatus({ type: "error", message: "Сталася помилка. Спробуйте ще раз." });
     } finally {
       setSubmitting(false);
+
+      // Автоматичне приховування повідомлення через 5 сек
+      setTimeout(() => setFormStatus(null), 5000);
     }
   };
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} noValidate className={styles.form}>
-      {/* Name */}
+      {/* Повідомлення про статус */}
+      {formStatus && (
+        <div
+          className={`${styles.statusMessage} ${
+            formStatus.type === "success" ? styles.success : styles.error
+          }`}
+        >
+          {formStatus.message}
+        </div>
+      )}
+
+      {/* Ім’я */}
       <div className={styles.inputGroup}>
         <input
           id="name"
@@ -105,7 +122,7 @@ const MessageForm = () => {
         {errors.name && <p className={styles.errorMsg}>{errors.name}</p>}
       </div>
 
-      {/* Phone */}
+      {/* Телефон */}
       <div className={styles.inputGroup}>
         <input
           id="phone"
@@ -141,7 +158,7 @@ const MessageForm = () => {
         {errors.email && <p className={styles.errorMsg}>{errors.email}</p>}
       </div>
 
-      {/* Message */}
+      {/* Повідомлення */}
       <div className={styles.inputGroup}>
         <textarea
           id="message"
