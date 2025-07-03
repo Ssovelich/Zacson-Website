@@ -22,7 +22,7 @@
 .letter {
   font-size: 18px;
   font-weight: 500;
-  color: #ff4d2e;
+  color: white;
   animation: bounce 0.6s infinite alternate;
   position: relative;
   z-index: 1;
