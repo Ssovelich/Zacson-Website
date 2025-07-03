@@ -11,11 +11,13 @@
   text-transform: uppercase;
 }
 .notFoundContent {
-    padding: 40px 0 20px;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 20px;
 }
-.text{
-width: 220px;
-    text-align: center;
+.text {
+  width: 240px;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -28,9 +30,14 @@ width: 220px;
   }
   .notFoundContent {
     padding: 80px 0 30px;
-  }}
+  }
+  .text {
+  width: 100%;
+  font-size: 20px;
+}
+}
 
-  @media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .bg {
     padding: 200px 0 60px;
     height: 450px;
@@ -40,4 +47,8 @@ width: 220px;
   }
   .notFoundContent {
     padding: 100px 0 40px;
-  }}
+  }
+  .text {
+    font-size: 24px;
+}
+}

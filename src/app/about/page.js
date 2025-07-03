@@ -15,8 +15,6 @@ const AboutPage = () => {
 
       <div className={`container ${styles.aboutContent}`}>
         <img
-          commentMore
-          actions
           src="/images/about.png"
           alt="About Zacson"
           className={styles.aboutImage}
