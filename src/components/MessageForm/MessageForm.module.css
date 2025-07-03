@@ -42,7 +42,7 @@
 }
 .filled + .label,
 .input:focus + .label {
-  top: -17px;
+  top: -18px;
   font-size: 12px;
   color: white;
 }
@@ -72,24 +72,4 @@
   margin-left: 4px;
 }
 
-.statusMessage {
-  margin-bottom: 16px;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.success {
-  background-color: rgba(0, 180, 100, 0.15);
-  border: 1px solid #00b464;
-  color: #00b464;
-}
-
-.error {
-  background-color: rgba(255, 0, 0, 0.1);
-  border: 1px solid #ff4d4f;
-  color: #ff4d4f;
-}
 

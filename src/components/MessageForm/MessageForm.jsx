@@ -5,17 +5,12 @@ import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import LoaderWave from "@/components/LoaderWave/LoaderWave";
 import { messageSchema } from "@/validation/messageSchema";
+import StatusModal from "../StatusModal/StatusModal";
 
 const MessageForm = () => {
   const formRef = useRef(null);
   const [submitting, setSubmitting] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
-
-  const [formStatus, setFormStatus] = useState(null); // ✅ status: { type, message }
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  const [formStatus, setFormStatus] = useState(null);
 
   const [values, setValues] = useState({
     name: "",
@@ -60,7 +55,10 @@ const MessageForm = () => {
         }
       });
       setErrors(fieldErrors);
-      setFormStatus({ type: "error", message: "Будь ласка, перевірте всі поля форми." });
+      setFormStatus({
+        type: "error",
+        message: "Будь ласка, перевірте всі поля форми.",
+      });
       return;
     }
 
@@ -75,34 +73,35 @@ const MessageForm = () => {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
-      setFormStatus({ type: "success", message: "Ваше повідомлення надіслано успішно! 💪" });
+      setFormStatus({
+        type: "success",
+        message: "Ваше повідомлення надіслано успішно!",
+      });
 
       formRef.current.reset();
       setValues({ name: "", phone: "", email: "", message: "" });
       setErrors({});
     } catch (err) {
       console.error(err);
-      setFormStatus({ type: "error", message: "Сталася помилка. Спробуйте ще раз." });
+      setFormStatus({
+        type: "error",
+        message: "Сталася помилка. Спробуйте ще раз.",
+      });
     } finally {
       setSubmitting(false);
-
-      // Автоматичне приховування повідомлення через 5 сек
-      setTimeout(() => setFormStatus(null), 5000);
     }
   };
 
+  useEffect(() => {
+    if (formStatus) {
+      const timer = setTimeout(() => setFormStatus(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [formStatus]);
+
   return (
     <form ref={formRef} onSubmit={handleSubmit} noValidate className={styles.form}>
-      {/* Повідомлення про статус */}
-      {formStatus && (
-        <div
-          className={`${styles.statusMessage} ${
-            formStatus.type === "success" ? styles.success : styles.error
-          }`}
-        >
-          {formStatus.message}
-        </div>
-      )}
+      <StatusModal status={formStatus} />
 
       {/* Ім’я */}
       <div className={styles.inputGroup}>
@@ -177,7 +176,7 @@ const MessageForm = () => {
       </div>
 
       <button type="submit" disabled={submitting} className={styles.button}>
-        {hasMounted && (submitting ? <LoaderWave /> : "Надіслати повідомлення")}
+        {submitting ? <LoaderWave /> : "Надіслати повідомлення"}
       </button>
     </form>
   );
