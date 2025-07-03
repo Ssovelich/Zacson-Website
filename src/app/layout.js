@@ -5,6 +5,7 @@ import Footer from "@/components/Footer/Footer";
 import { Oswald } from "next/font/google";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn/ScrollToTopBtn";
 import RouteLoaderWrapper from "@/components/RouteLoaderWrapper";
+import { Toaster } from "react-hot-toast";
 
 const oswald = Oswald({
   subsets: ["latin", "cyrillic"],
@@ -30,6 +31,7 @@ const Layout = ({ children }) => {
         </RouteLoaderWrapper>
         <Footer />
         <ScrollToTopBtn />
+        <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
       </body>
     </html>
   );

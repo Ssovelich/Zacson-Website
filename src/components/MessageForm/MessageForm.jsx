@@ -4,7 +4,7 @@ import styles from "./MessageForm.module.css";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import LoaderWave from "@/components/LoaderWave/LoaderWave";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const MessageForm = () => {
   const formRef = useRef(null);
@@ -51,7 +51,7 @@ const MessageForm = () => {
 
   return (
     <>
-      <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
+      
       <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.inputGroup}>
           <input
