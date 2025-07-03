@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./MessageForm.module.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import LoaderWave from "@/components/LoaderWave/LoaderWave";
 import toast from "react-hot-toast";
@@ -10,6 +10,11 @@ import { messageSchema } from "@/validation/messageSchema";
 const MessageForm = () => {
   const formRef = useRef(null);
   const [submitting, setSubmitting] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   const [values, setValues] = useState({
     name: "",
@@ -21,22 +26,17 @@ const MessageForm = () => {
   const [errors, setErrors] = useState({});
 
   const validateField = (name, value) => {
-    // створюємо копію values з оновленим полем
     const updatedValues = { ...values, [name]: value };
-
     const result = messageSchema.safeParse(updatedValues);
 
     if (result.success) {
-      // якщо весь обʼєкт валідний, очищуємо всі помилки
       setErrors((prev) => ({ ...prev, [name]: "" }));
     } else {
-      // шукаємо конкретну помилку по полю
       const fieldError = result.error.errors.find((e) => e.path[0] === name);
-      if (fieldError) {
-        setErrors((prev) => ({ ...prev, [name]: fieldError.message }));
-      } else {
-        setErrors((prev) => ({ ...prev, [name]: "" }));
-      }
+      setErrors((prev) => ({
+        ...prev,
+        [name]: fieldError ? fieldError.message : "",
+      }));
     }
   };
 
@@ -160,7 +160,7 @@ const MessageForm = () => {
       </div>
 
       <button type="submit" disabled={submitting} className={styles.button}>
-        {submitting ? <LoaderWave /> : "Надіслати повідомлення"}
+        {hasMounted && (submitting ? <LoaderWave /> : "Надіслати повідомлення")}
       </button>
     </form>
   );
