@@ -4,6 +4,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { Oswald } from "next/font/google";
 import ScrollToTopBtn from "@/components/ScrollToTopBtn/ScrollToTopBtn";
+import RouteLoaderWrapper from "@/components/RouteLoaderWrapper";
 
 const oswald = Oswald({
   subsets: ["latin", "cyrillic"],
@@ -15,7 +16,7 @@ export const metadata = {
   title: "ZACSON Fitness Club",
   description: "Zacson Fitness Club",
   icons: {
-    icon: '/favicon.png',
+    icon: "/favicon.png",
   },
 };
 
@@ -24,7 +25,9 @@ const Layout = ({ children }) => {
     <html lang="en">
       <body className={`${oswald.className} ${styles.body}`}>
         <Header />
-        <main className={styles.main}>{children}</main>
+        <RouteLoaderWrapper>
+          <main className={styles.main}>{children}</main>
+        </RouteLoaderWrapper>
         <Footer />
         <ScrollToTopBtn />
       </body>

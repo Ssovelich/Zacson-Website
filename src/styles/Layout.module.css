@@ -10,6 +10,16 @@
   margin-left: auto;
   margin-right: auto;
 }
+.loaderOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9999;
+  transition: opacity 0.2s ease;
+}
 
 @media (min-width: 768px) {
   .container {

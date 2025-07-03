@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import styles from "./Header.module.css";
-import MobileMenu from "../MobileMenu/MobileMenu";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import MobileMenu from "../MobileMenu/MobileMenu";
 import AnimatedLinkFill from "../AnimatedLinkFill/AnimatedLinkFill";
 
 const Header = () => {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   const navData = [
     ["Home", "/"],
     ["About", "/about"],
@@ -36,27 +38,42 @@ const Header = () => {
     };
   }, []);
 
+  const isActive = (href) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
-   <header className={`${styles.header} ${isScrolled ? styles["header--scrolled"] : ""}`}>
+    <header
+      className={`${styles.header} ${
+        isScrolled ? styles["header--scrolled"] : ""
+      }`}
+    >
       <div className={`container ${styles.headerContainer}`}>
         <Link href="/" className={styles.logo}>
           <img src="/logo.png" alt="logo" width={95} height={45} />
         </Link>
         <nav className={styles.navDesktop}>
           {navData.map(([label, href]) => (
-            <Link key={href} href={href} className={styles.navLink}>
+            <Link
+              key={href}
+              href={href}
+              className={`${styles.navLink} ${
+                isActive(href) ? styles.navLinkActive : ""
+              }`}
+            >
               {label}
             </Link>
           ))}
         </nav>
-        <AnimatedLinkFill className={styles.messageLink} href="/message">Message me</AnimatedLinkFill>
+        <AnimatedLinkFill className={styles.messageLink} href="/message">
+          Message me
+        </AnimatedLinkFill>
         {/* <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
           Hire me
         </AnimatedLinkFill> */}
 
         <button
           className={`${styles.burger} ${mobileMenuOpen ? styles.open : ""}`}
-          onClick={() => setMobileMenuOpen(prev => !prev)}
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
         >
           <span />
           <span />
