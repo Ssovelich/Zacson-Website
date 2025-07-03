@@ -67,10 +67,7 @@ const Header = () => {
         <AnimatedLinkFill className={styles.messageLink} href="/message">
           Message me
         </AnimatedLinkFill>
-        {/* <AnimatedLinkFill className={styles.contactLink} variant="fill" href="/hire">
-          Hire me
-        </AnimatedLinkFill> */}
-
+       
         <button
           className={`${styles.burger} ${mobileMenuOpen ? styles.open : ""}`}
           onClick={() => setMobileMenuOpen((prev) => !prev)}
