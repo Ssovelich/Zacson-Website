@@ -11,6 +11,8 @@
   text-transform: uppercase;
 }
 .messageContent {
+  display: flex;
+  justify-content: center;
   padding: 40px 0 20px;
 }
 

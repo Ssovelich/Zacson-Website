@@ -7,7 +7,7 @@ import styles from '@/styles/Layout.module.css';
 
 const MIN_DISPLAY_TIME = 600;
 
-export default function RouteLoaderWrapper({ children }) {
+const RouteLoaderWrapper = ({ children }) => {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 //   const [isPending, startTransition] = useTransition();
@@ -41,3 +41,5 @@ export default function RouteLoaderWrapper({ children }) {
     </>
   );
 }
+
+export default RouteLoaderWrapper;  

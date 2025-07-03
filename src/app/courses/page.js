@@ -22,7 +22,6 @@ const CoursesPage = () => {
                 src={`/images/${cours.image}`}
                 alt={cours.title}
                 className={styles.img}
-                
               />
               <p className={styles.itemText}>{cours.description}</p>
             </article>
