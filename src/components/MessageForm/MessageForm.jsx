@@ -5,27 +5,62 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import LoaderWave from "@/components/LoaderWave/LoaderWave";
 import toast from "react-hot-toast";
+import { messageSchema } from "@/validation/messageSchema";
 
 const MessageForm = () => {
   const formRef = useRef(null);
   const [submitting, setSubmitting] = useState(false);
-  const [filled, setFilled] = useState({
-    name: false,
-    phone: false,
-    email: false,
-    message: false,
+
+  const [values, setValues] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  const validateField = (name, value) => {
+    // створюємо копію values з оновленим полем
+    const updatedValues = { ...values, [name]: value };
+
+    const result = messageSchema.safeParse(updatedValues);
+
+    if (result.success) {
+      // якщо весь обʼєкт валідний, очищуємо всі помилки
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    } else {
+      // шукаємо конкретну помилку по полю
+      const fieldError = result.error.errors.find((e) => e.path[0] === name);
+      if (fieldError) {
+        setErrors((prev) => ({ ...prev, [name]: fieldError.message }));
+      } else {
+        setErrors((prev) => ({ ...prev, [name]: "" }));
+      }
+    }
+  };
+
   const handleChange = (e) => {
-    setFilled((prev) => ({
-      ...prev,
-      [e.target.name]: !!e.target.value,
-    }));
+    const { name, value } = e.target;
+    setValues((prev) => ({ ...prev, [name]: value }));
+    validateField(name, value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formRef.current) return;
+
+    const result = messageSchema.safeParse(values);
+
+    if (!result.success) {
+      const fieldErrors = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0]] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
 
     setSubmitting(true);
 
@@ -37,85 +72,97 @@ const MessageForm = () => {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
-      toast.success("Your message has been sent successfully! 💪");
+      toast.success("Ваше повідомлення надіслано успішно! 💪");
 
       formRef.current.reset();
-      setFilled({ name: false, phone: false, email: false, message: false });
+      setValues({ name: "", phone: "", email: "", message: "" });
+      setErrors({});
     } catch (err) {
       console.error(err);
-      toast.error("Oops! Something went wrong. Please try again.");
+      toast.error("Сталася помилка. Спробуйте ще раз.");
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <>
-      
-      <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.inputGroup}>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className={`${styles.input} ${filled.name ? styles.filled : ""}`}
-            onChange={handleChange}
-          />
-          <label htmlFor="name" className={styles.label}>
-            Your Name*
-          </label>
-        </div>
+    <form ref={formRef} onSubmit={handleSubmit} noValidate className={styles.form}>
+      {/* Name */}
+      <div className={styles.inputGroup}>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          value={values.name}
+          onChange={handleChange}
+          className={`${styles.input} ${values.name ? styles.filled : ""} ${
+            errors.name ? styles.errorInput : ""
+          }`}
+        />
+        <label htmlFor="name" className={styles.label}>
+          Ваше імʼя*
+        </label>
+        {errors.name && <p className={styles.errorMsg}>{errors.name}</p>}
+      </div>
 
-        <div className={styles.inputGroup}>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            pattern="[+ 0-9]{7,}"
-            required
-            className={`${styles.input} ${filled.phone ? styles.filled : ""}`}
-            onChange={handleChange}
-          />
-          <label htmlFor="phone" className={styles.label}>
-            Phone Number*
-          </label>
-        </div>
+      {/* Phone */}
+      <div className={styles.inputGroup}>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          value={values.phone}
+          onChange={handleChange}
+          className={`${styles.input} ${values.phone ? styles.filled : ""} ${
+            errors.phone ? styles.errorInput : ""
+          }`}
+        />
+        <label htmlFor="phone" className={styles.label}>
+          Номер телефону*
+        </label>
+        {errors.phone && <p className={styles.errorMsg}>{errors.phone}</p>}
+      </div>
 
-        <div className={styles.inputGroup}>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className={`${styles.input} ${filled.email ? styles.filled : ""}`}
-            onChange={handleChange}
-          />
-          <label htmlFor="email" className={styles.label}>
-            Email Address*
-          </label>
-        </div>
+      {/* Email */}
+      <div className={styles.inputGroup}>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          value={values.email}
+          onChange={handleChange}
+          className={`${styles.input} ${values.email ? styles.filled : ""} ${
+            errors.email ? styles.errorInput : ""
+          }`}
+        />
+        <label htmlFor="email" className={styles.label}>
+          Email адреса*
+        </label>
+        {errors.email && <p className={styles.errorMsg}>{errors.email}</p>}
+      </div>
 
-        <div className={styles.inputGroup}>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            className={`${styles.input} ${styles.textarea} ${
-              filled.message ? styles.filled : ""
-            }`}
-            onChange={handleChange}
-          />
-          <label htmlFor="message" className={styles.label}>
-            Your Comment
-          </label>
-        </div>
+      {/* Message */}
+      <div className={styles.inputGroup}>
+        <textarea
+          id="message"
+          name="message"
+          rows={5}
+          value={values.message}
+          onChange={handleChange}
+          className={`${styles.input} ${styles.textarea} ${
+            values.message ? styles.filled : ""
+          } ${errors.message ? styles.errorInput : ""}`}
+        />
+        <label htmlFor="message" className={styles.label}>
+          Коментар
+        </label>
+        {errors.message && <p className={styles.errorMsg}>{errors.message}</p>}
+      </div>
 
-        <button type="submit" disabled={submitting} className={styles.button}>
-          {submitting ? <LoaderWave /> : "Send Message"}
-        </button>
-      </form>
-    </>
+      <button type="submit" disabled={submitting} className={styles.button}>
+        {submitting ? <LoaderWave /> : "Надіслати повідомлення"}
+      </button>
+    </form>
   );
 };
 
