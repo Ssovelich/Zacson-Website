@@ -3,19 +3,19 @@ import { z } from "zod";
 export const messageSchema = z.object({
   name: z
     .string()
-    .min(3, "Імʼя має містити щонайменше 3 символи.")
-    .max(20, "Імʼя не може перевищувати 20 символів.")
-    .nonempty("Імʼя є обовʼязковим."),
+    .min(3, "The name must contain at least 3 characters.")
+    .max(20, "The name cannot exceed 20 characters.")
+    .nonempty("Name is required."),
 
   email: z
     .string()
-    .nonempty("Email є обовʼязковим.")
-    .email("Неправильний формат email."),
+    .nonempty("Email is required.")
+    .email("Incorrect email format."),
 
   phone: z
     .string()
-    .nonempty("Номер телефону є обовʼязковим.")
-    .regex(/^\+?\d{9,12}$/, "Невірний формат номера телефону."),
+    .nonempty("Phone number is required.")
+    .regex(/^\+?\d{9,12}$/, "Invalid phone number format."),
 
   message: z.string().optional(),
 });
