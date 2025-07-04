@@ -57,7 +57,7 @@ const MessageForm = () => {
       setErrors(fieldErrors);
       setFormStatus({
         type: "error",
-        message: "Будь ласка, перевірте всі поля форми.",
+        message: "Please check all form fields.",
       });
       return;
     }
@@ -75,7 +75,7 @@ const MessageForm = () => {
 
       setFormStatus({
         type: "success",
-        message: "Ваше повідомлення надіслано успішно!",
+        message: "Your message has been sent successfully!",
       });
 
       formRef.current.reset();
@@ -85,7 +85,7 @@ const MessageForm = () => {
       console.error(err);
       setFormStatus({
         type: "error",
-        message: "Сталася помилка. Спробуйте ще раз.",
+        message: "An error occurred. Please try again.",
       });
     } finally {
       setSubmitting(false);
@@ -100,10 +100,15 @@ const MessageForm = () => {
   }, [formStatus]);
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} noValidate className={styles.form}>
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      noValidate
+      className={styles.form}
+    >
       <StatusModal status={formStatus} />
 
-      {/* Ім’я */}
+      {/* Name */}
       <div className={styles.inputGroup}>
         <input
           id="name"
@@ -116,12 +121,12 @@ const MessageForm = () => {
           }`}
         />
         <label htmlFor="name" className={styles.label}>
-          Ваше імʼя*
+          Your name*
         </label>
         {errors.name && <p className={styles.errorMsg}>{errors.name}</p>}
       </div>
 
-      {/* Телефон */}
+      {/* Phone */}
       <div className={styles.inputGroup}>
         <input
           id="phone"
@@ -134,7 +139,7 @@ const MessageForm = () => {
           }`}
         />
         <label htmlFor="phone" className={styles.label}>
-          Номер телефону*
+          Phone number*
         </label>
         {errors.phone && <p className={styles.errorMsg}>{errors.phone}</p>}
       </div>
@@ -152,12 +157,12 @@ const MessageForm = () => {
           }`}
         />
         <label htmlFor="email" className={styles.label}>
-          Email адреса*
+          Email*
         </label>
         {errors.email && <p className={styles.errorMsg}>{errors.email}</p>}
       </div>
 
-      {/* Повідомлення */}
+      {/* Message */}
       <div className={styles.inputGroup}>
         <textarea
           id="message"
@@ -170,13 +175,13 @@ const MessageForm = () => {
           } ${errors.message ? styles.errorInput : ""}`}
         />
         <label htmlFor="message" className={styles.label}>
-          Коментар
+          Message
         </label>
         {errors.message && <p className={styles.errorMsg}>{errors.message}</p>}
       </div>
 
       <button type="submit" disabled={submitting} className={styles.button}>
-        {submitting ? <LoaderWave /> : "Надіслати повідомлення"}
+        {submitting ? <LoaderWave /> : "Send message"}
       </button>
     </form>
   );

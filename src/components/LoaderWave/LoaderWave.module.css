@@ -15,7 +15,7 @@
   font-size: 18px;
   font-weight: 500;
   color: transparent;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 4px white;
   pointer-events: none;
   z-index: 0;
 }
