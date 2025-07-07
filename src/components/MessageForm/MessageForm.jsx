@@ -57,7 +57,7 @@ const MessageForm = () => {
       setErrors(fieldErrors);
       setFormStatus({
         type: "error",
-        message: "Please check all form fields.",
+        message: "Please check all form fields",
       });
       return;
     }
@@ -85,7 +85,7 @@ const MessageForm = () => {
       console.error(err);
       setFormStatus({
         type: "error",
-        message: "An error occurred. Please try again.",
+        message: "An error occurred. Please try again",
       });
     } finally {
       setSubmitting(false);
