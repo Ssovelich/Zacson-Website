@@ -30,7 +30,7 @@ const ContactPage = () => {
             <div className={styles.contactDetails}>
               <h3 className={styles.titleItem}>Location</h3>
               <p className={styles.text}>
-                Buttonwood, California.
+                Buttonwood, California,
                 <br />
                 <span>Rosemead, CA 91770</span>
               </p>
