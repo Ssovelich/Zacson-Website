@@ -21,7 +21,6 @@
   flex-direction: column;
   align-items: center;
   flex: 0 1 100%;
-  padding: 15px 0;
   overflow: hidden;
 }
 .offersCardImage {
@@ -33,9 +32,7 @@
   transform: scale(1);
   transition: transform 0.5s ease;
 }
-.offersCard:hover .offersCardImage {
-  transform: scale(1.05);
-}
+
 .offersCardTitle {
   font-size: 21px;
   font-weight: 500;
@@ -49,10 +46,112 @@
   text-align: center;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 3, 3, 0.188);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   pointer-events: auto;
+  transform: translateX(0) translateY(0);
+  transition: transform 0.4s ease;
+  opacity: 0;
+}
+
+.overlayContent {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cornerLink {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 80px;
+  height: 80px;
+  background: red;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  transition: background 0.3s ease;
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px;
+  color: white;
+  font-size: 24px;
+  pointer-events: auto;
+}
+
+.offersCard {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Direction-aware enter animation */
+.enter[data-direction="top"] {
+  transform: translateY(0);
+  opacity: 1;
+}
+.enter[data-direction="right"] {
+  transform: translateX(0);
+  opacity: 1;
+}
+.enter[data-direction="bottom"] {
+  transform: translateY(0);
+  opacity: 1;
+}
+.enter[data-direction="left"] {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.leave[data-direction="top"] {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.leave[data-direction="right"] {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.leave[data-direction="bottom"] {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.leave[data-direction="left"] {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Initial state for all directions */
+.overlay[data-direction="top"] {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.overlay[data-direction="right"] {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.overlay[data-direction="bottom"] {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.overlay[data-direction="left"] {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
 @media (min-width: 768px) {
   .offers {
-   padding-top: 60px;
-  padding-bottom: 60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
   .offersTitle {
     font-size: 50px;
