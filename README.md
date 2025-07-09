@@ -17,10 +17,8 @@ A modern, responsive website for the **Zacson Fitness Club**, built with **Next.
 ---
 
 ## 📸 Homepage Screenshot
-
-![Homepage](public/screenshot-home.png)
-
-> 💡 Save the screenshot as **`screenshot-home.jpg`** inside the **`/public`** directory of your project root to display it correctly on GitHub.
+screenshot-home.png
+![Homepage](public/images/og-image.png)
 
 ---
 
