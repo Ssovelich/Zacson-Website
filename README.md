@@ -1,6 +1,6 @@
 # 🏋️ Zacson Fitness Club – Modern Website
 
-A modern, responsive website for the **Zacson Fitness Club**, built with **Next.js**. The site includes sections about the club, class schedule, trainers, services, contact information, and a sign-up form.
+A modern responsive website for the **Zacson fitness club**, built using **Next.js**. The site contains sections with information about the club, a brief description of classes, subscription prices, contact information, and a form for sending messages.
 
 ## 🔗 Live Demo
 
@@ -17,7 +17,7 @@ A modern, responsive website for the **Zacson Fitness Club**, built with **Next.
 ---
 
 ## 📸 Homepage Screenshot
-screenshot-home.png
+screenshot-home
 ![Homepage](public/images/og-image.png)
 
 ---
